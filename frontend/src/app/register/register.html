@@ -1,0 +1,67 @@
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-100 p-6">
+
+  <form
+    name="registerForm"
+    class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md space-y-6"
+    (ngSubmit)="onRegister()"
+  >
+    <h2 class="text-2xl font-bold text-center text-blue-800">Créer un compte</h2>
+    <p class="text-center text-sm text-gray-500">Inscription réservée au personnel médical</p>
+
+    <div>
+      <label for="username" class="block text-sm font-medium text-blue-900">Nom d'utilisateur</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        [(ngModel)]="username"
+        required
+        autocomplete="off"
+        placeholder="ex. dr.martin"
+        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none px-3 py-2"
+      />
+    </div>
+
+    <div>
+      <label for="email" class="block text-sm font-medium text-blue-900">Adresse email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        autocomplete="off"
+        placeholder="ex. dr.martin@hopital.fr"
+        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none px-3 py-2"
+      />
+    </div>
+
+    <div>
+      <label for="password" class="block text-sm font-medium text-blue-900">Mot de passe</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        required
+        placeholder="••••••••"
+        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none px-3 py-2"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition"
+    >
+      S'inscrire
+    </button>
+
+    <p
+      *ngIf="message"
+      class="text-center text-sm"
+      [style.color]="error ? 'red' : 'green'"
+    >
+      {{ message }}
+    </p>
+  </form>
+  <button type="button" (click)="onClick()">Test appel direct</button>
+</section>
