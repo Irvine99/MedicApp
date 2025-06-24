@@ -37,7 +37,7 @@ export class RegisterComponent {
       password: this.password,
     };
 
-    this.http.post<any>('/api/register', payload).subscribe({
+    this.http.post<any>('/api/register/', payload).subscribe({
       next: (res) => {
         this.message = 'Inscription réussie !';
         this.error = false;

@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   imports: [
     CommonModule,
     FormsModule,
-        // <-- nécessaire ici pour standalone
+       
   ],
   templateUrl: './login.html',
 })
