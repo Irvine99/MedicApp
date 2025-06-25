@@ -1,0 +1,45 @@
+<header class="w-full bg-white shadow-md border-b border-blue-100">
+  <div
+    class="max-w-screen mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between"
+  >
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3">
+      <img
+        src="assets/images/logoMedicalApp.jpg"
+        alt="Logo MedicalApp"
+        class="h-20 w-20 border-[1px] border-blue-300 rounded-full object-contain"
+      />
+      <span class="text-xl font-semibold text-blue-700">Clinique Santé+</span>
+    </div>
+
+    <div class="flex items-center space-x-12">
+      <!-- NAVIGATION -->
+      <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+        <a routerLink="/dashboard" routerLinkActive="text-blue-600 font-bold"
+          >Accueil</a
+        >
+        <a routerLink="/patients" routerLinkActive="text-blue-600 font-bold"
+          >Patients</a
+        >
+        <a routerLink="/appointments" routerLinkActive="text-blue-600 font-bold"
+          >Rendez-vous</a
+        >
+        <a routerLink="/reports" routerLinkActive="text-blue-600 font-bold"
+          >Rapports</a
+        >
+      </nav>
+
+      <!-- PROFIL -->
+      <div class="flex items-center space-x-3">
+        <img
+          src="assets/avatar-doctor.png"
+          alt="Dr. Martin"
+          class="h-10 w-10 rounded-full border border-blue-300"
+        />
+        <span class="hidden sm:inline text-sm text-gray-700 font-medium"
+          >Dr. Martin</span
+        >
+      </div>
+    </div>
+  </div>
+</header>
