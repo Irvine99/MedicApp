@@ -1,0 +1,32 @@
+<div class="p-6">
+  <!-- 🔍 Filtres -->
+  <div class="grid md:grid-cols-4 gap-4 mb-4">
+    <select [(ngModel)]="filter.service" (change)="onFilterChange()"
+            class="border p-2 rounded bg-white">
+      <option value="">Tous services</option>
+      <option *ngFor="let s of services" [value]="s.id">{{s.name}}</option>
+    </select>
+
+    <select [(ngModel)]="filter.medecin" (change)="onFilterChange()"
+            class="border p-2 rounded bg-white">
+      <option value="">Tous médecins</option>
+      <option *ngFor="let m of medecins" [value]="m.id">{{m.name}}</option>
+    </select>
+
+    <input type="text" [(ngModel)]="filter.equipe" (input)="onFilterChange()"
+           placeholder="Équipe" class="border p-2 rounded bg-white"/>
+
+    <button (click)="view = CalendarView.Month"
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+      Vue Mensuelle
+    </button>
+  </div>
+
+  <!-- 📅 Planning Angular Calendar -->
+  <mwl-calendar-week-view
+    [viewDate]="viewDate"
+    [events]="events"
+    (eventClicked)="eventClicked($event)"
+    class="bg-white rounded shadow p-4"
+  ></mwl-calendar-week-view>
+</div>

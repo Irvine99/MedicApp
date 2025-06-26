@@ -6,6 +6,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login, logout
 from .serializers import UserSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+
+from .models import Service, Medecin, Intervention
+from .serializers import ServiceSerializer, MedecinSerializer, InterventionSerializer
+from rest_framework import viewsets, filters
 
 @api_view(['POST'])
 def register(request):
@@ -29,3 +34,20 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return Response({'message': 'Déconnecté'}, status=status.HTTP_200_OK)
+
+
+class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+class MedecinViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Medecin.objects.all()
+    serializer_class = MedecinSerializer
+    filter_backends = [filters.DjangoFilterBackend]
+    filterset_fields = ['service']
+
+class InterventionViewSet(viewsets.ModelViewSet):
+    queryset = Intervention.objects.all()
+    serializer_class = InterventionSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['medecin', 'medecin__service', 'equipe', 'start', 'end']
